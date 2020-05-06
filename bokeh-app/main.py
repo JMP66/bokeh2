@@ -46,7 +46,7 @@ def geographic_to_web_mercator(x_lon, y_lat):
         x_mercator = x         
         y_mercator = 3189068.5 * np.log((1.0 + np.sin(a)) / (1.0 - np.sin(a)))         
         
-        return x_mercator, y_mercator  
+    return x_mercator, y_mercator  
 
 #Ger mercator coordinates
 mercx = []
