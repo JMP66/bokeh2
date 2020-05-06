@@ -19,8 +19,8 @@ from bokeh.tile_providers import CARTODBPOSITRON, get_provider
 from bokeh.io import output_file, show, save, curdoc, output_notebook, export_png
 
 #Load data
-mid_dyn = pd.read_csv("../data/MiddleSchools_2006-2018_clean.csv")
-mid_stat = pd.read_csv("../data/MiddleSchools_2018_clean.csv")
+mid_dyn = pd.read_csv(join(dirname(__file__), "data/MiddleSchools_2006-2018_clean.csv"))
+mid_stat = pd.read_csv(join(dirname(__file__), "data/MiddleSchools_2018_clean.csv"))
 
 nums =['female_rate', 'male_rate', 'asian_rate', 'black_rate', 'hispanic_rate',
        'other_rate', 'white_rate', 'disabilities_rate', 'ell_rate',
