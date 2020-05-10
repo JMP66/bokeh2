@@ -49,7 +49,7 @@ def geographic_to_web_mercator(x_lon, y_lat):
         x_mercator = 0
         y_mercator = 0
         
-        return x_mercator, y_mercator  
+    return x_mercator, y_mercator  
 
 #Ger mercator coordinates
 mercx = []
@@ -328,7 +328,7 @@ layout = column(div0,div00,col1,row(col2,col3,col4))
 
 
 curdoc().add_root(layout)
-curdoc().title = "hej"
+curdoc().title = "FindSchool"
 
 output_notebook()
 show(layout)
