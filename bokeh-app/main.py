@@ -124,8 +124,8 @@ def create_plot():
 
     #Cross off
     offer_idx = checkbox52.active
-    offer = ['Uniform', 'Extended day',
-       'Summer session', 'Weekend program']
+    offer = ['uniform', 'extendedday',
+       'summersession', 'weekendprogram']
     offer_choice = [offer[idx] for idx in offer_idx]
     
     for off in offer_choice:
