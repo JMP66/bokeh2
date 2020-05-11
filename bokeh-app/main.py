@@ -328,7 +328,7 @@ layout = column(div0,div00,col1,row(col2,col3,col4))
 
 
 curdoc().add_root(layout)
-curdoc().title = "hej"
+curdoc().title = "FindSchool"
 
 output_notebook()
 show(layout)
