@@ -44,7 +44,7 @@ def geographic_to_web_mercator(x_lon, y_lat):
         x = 6378137.0 * num         
         a = y_lat * 0.017453292519943295          
         x_mercator = x         
-        y_mercator = 3189068.5 * np.log((1.0 + np.sin(a)) / (1.0 - np.sin(a)))  
+        y_mercator = 3189068.5 * np.log((1.0 + np.sin(a)) / (1.0 - np.sin(a)))         
     else: 
         x_mercator = 0
         y_mercator = 0
@@ -328,7 +328,7 @@ layout = column(div0,div00,col1,row(col2,col3,col4))
 
 
 curdoc().add_root(layout)
-curdoc().title = "FindSchool"
+curdoc().title = "hej"
 
 output_notebook()
 show(layout)
