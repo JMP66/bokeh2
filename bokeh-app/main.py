@@ -168,7 +168,7 @@ def create_plot():
     
     w=82
 
-    div0= Div(text="<b> Schools matching Preferences: {} </b>".format(len(data)),style={'font-size': '150%'})
+    div0= Div(text="<b> Schools Matching Preferences: {} </b>".format(len(data)),style={'font-size': '150%'})
     
     columns = [
             TableColumn(field="dbn", title="School DBN",width=w),
@@ -208,29 +208,6 @@ def create_plot():
        
     return data_table, m,div0
     
-    
-    
-
-
-# # SPORTS 
-# 
-# mid_stat['electives'] =mid_stat['electives'].astype(str)
-# sports = []
-# 
-# for i in range(len(mid_stat)):
-#     col = mid_stat.electives[i].split(', ')
-#     
-#     for i in range(len(col)):
-#         sports.append(col[i])
-#         
-# sport,count = np.sort(np.unique(np.array(sports),return_counts=True))
-# sports = pd.DataFrame()
-# sports['sport'] = sport
-# sports['sport'] = sports['sport'].str.lower()
-# sports['count'] = count.astype(int)
-# sports = sports.sort_values(by='count',ascending=False)
-
-# In[24]:
 
 
 def update(attr, old, new):
@@ -267,13 +244,13 @@ slider4.on_change('value',update)
 # 5) Choose Offers
 div5 = Div(text="<b> Student Offers</b>")
 
-sports_choice= ['No Preference','Dance and Fitness','Outdoor', 'Water Sports ','Martial Arts ','Racquet Sports','Ball Teamsports']
-div51=Div(text="<i> Choose sport </i>")
+sports_choice= ['No preference','Dance and fitness','Outdoor', 'Water sports ','Martial arts ','Racquet sports','Ball team sports']
+div51=Div(text="<i> Choose Sport </i>")
 select51 = Select(options=sports_choice,value=sports_choice[0])
 select51.on_change('value',update)
 
-elect_choice=  ['No Preference','Technology','Creativity','Society'] 
-div52=Div(text="<i> Choose elective </i>")
+elect_choice=  ['No preference','Technology','Creativity','Society'] 
+div52=Div(text="<i> Choose Elective </i>")
 select52 = Select(options=elect_choice,value=elect_choice[0])
 select52.on_change('value',update)
 
@@ -300,13 +277,13 @@ slider7.on_change('value',update)
 #Rent
 div81 =Div(text="<b> Housing Rent per Sqft </b>")
 radio_button81= RadioButtonGroup(
-        labels=["No Preference","< 20 $", "20-30$", ">30 $"], active=0)
+        labels=["No preference","< 20 $", "20-30$", ">30 $"], active=0)
 radio_button81.on_change('active',update)
 
 #Crime
 div82 =Div(text="<b>Felonies per 100.000 </b>")
 radio_button82= RadioButtonGroup(
-        labels=["No Preference","< 30", "30-60", "> 60"], active=0)
+        labels=["No preference","< 30", "30-60", "> 60"], active=0)
 radio_button82.on_change('active',update)
 
 table,m, div0= create_plot()
