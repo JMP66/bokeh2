@@ -72,7 +72,7 @@ def create_plot():
     
     #Borough 
     boro_val = select1.value
-    boros = ['No Preference','Manhattan', 'Bronx', 'Brooklyn', 'Queens', 'Staten Island']
+    boros = ['No preference','Manhattan', 'Bronx', 'Brooklyn', 'Queens', 'Staten Island']
        
     if boro_val != boros[0]:
         data = data[data['borough']==boro_val]
@@ -95,7 +95,7 @@ def create_plot():
     
     #Sports
     s = select51.value
-    sports= ['No Preference','Dance and Fitness','Outdoor', 'Water Sports ','Martial Arts ','Racquet Sports','Ball Teamsports']
+    sports= ['No preference','Dance and fitness','Outdoor', 'Water sports ','Martial arts ','Racquet sports','Ball team sports']
 
     if s == sports[1]:
         data = data[data['sports'].str.lower().str.contains('salsa|zumba|step|weight|yoga|step|dance|fitness|cheer|gym')]
@@ -112,7 +112,7 @@ def create_plot():
         
     #Electives
     e = select52.value
-    elect = ['No Preference','Technology','Creativity','Society']  
+    elect = ['No preference','Technology','Creativity','Society']  
     
     if e == elect[1]:
         data = data[data['electives'].str.lower().str.contains('tech|coding|computer|web|movie|program|stem')]
@@ -124,8 +124,8 @@ def create_plot():
 
     #Cross off
     offer_idx = checkbox52.active
-    offer = ['uniform', 'extendedday',
-       'summersession', 'weekendprogram']
+    offer = ['Uniform', 'Extended day',
+       'Summer session', 'Weekend program']
     offer_choice = [offer[idx] for idx in offer_idx]
     
     for off in offer_choice:
