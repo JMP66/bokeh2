@@ -48,7 +48,6 @@ def geographic_to_web_mercator(x_lon, y_lat):
     else: 
         x_mercator = 0
         y_mercator = 0
-        
     return x_mercator, y_mercator  
 
 #Ger mercator coordinates
@@ -63,7 +62,7 @@ mid_stat['mercx'] = mercx
 mid_stat['mercy'] = mercy
 
 
-# In[3]:
+# In[16]:
 
 
 def create_plot():        
@@ -167,7 +166,7 @@ def create_plot():
     data_dict = data.to_dict('list')
     source = ColumnDataSource(data_dict) 
     
-    w=80
+    w=82
 
     div0= Div(text="<b> Schools matching Preferences: {} </b>".format(len(data)),style={'font-size': '150%'})
     
@@ -183,13 +182,13 @@ def create_plot():
             TableColumn(field="white_rate", title="% White",width=w),
             TableColumn(field="asian_rate", title="% Asian",width=w),
             TableColumn(field="hispanic_rate", title="% Hispanic",width=w),
-            TableColumn(field="avg_rent_per_sqft", title="Rent per sqft",width=w),
+            TableColumn(field="avg_rent_per_sqft", title="Rent per sqft $",width=w),
             TableColumn(field="crime_rate", title="Crime rate",width=w),
             TableColumn(field="sports", title="Sports",width=800),
             TableColumn(field="electives", title="Electives",width=800)
        
         ]
-    data_table = DataTable(source=source, columns=columns, width=800, height=180, fit_columns=False)  
+    data_table = DataTable(source=source, columns=columns, width=700, height=180, fit_columns=False)  
     
        
     #Get map
@@ -231,7 +230,7 @@ def create_plot():
 # sports['count'] = count.astype(int)
 # sports = sports.sort_values(by='count',ascending=False)
 
-# In[6]:
+# In[24]:
 
 
 def update(attr, old, new):
@@ -257,13 +256,11 @@ slider22 = RangeSlider(start=150, end=300, value=(150,300), step=1, title="ELA S
 slider22.on_change('value',update)
 
 # 3) Enrollment
-div3 = Div(text="<b> Enrolled Students </b>")
 slider3 = RangeSlider(start=94, end=2251, value=(94,2251), step=1, title="Enrolled Students")
 slider3.on_change('value',update)
 
 # 4) Class size
-div4 = Div(text="<b> Class size </b>")
-slider4= RangeSlider(start=3, end=26, value=(3,26), step=1, title="Class size")
+slider4= RangeSlider(start=3, end=26, value=(3,26), step=1, title="Class Size")
 slider4.on_change('value',update)
 
 
@@ -281,28 +278,27 @@ select52 = Select(options=elect_choice,value=elect_choice[0])
 select52.on_change('value',update)
 
 
-div53 = Div(text="<i> Cross off</i>")
-offer = ['uniform', 'extendedday',
-       'summersession', 'weekendprogram']
+div53 = Div(text="<i> Additional Choices</i>")
+offer = ['Uniform', 'Extended day',
+       'Summer session', 'Weekend program']
 checkbox52 = CheckboxGroup(labels=offer, active=[])
 checkbox52.on_change('active',update)
 
 
 # 6) Gender
-div6 = Div(text="<b> Gender rate </b>")
+div6 = Div(text="<b> Gender Rate </b>")
 slider61 = RangeSlider(start=0, end=100, value=(0,100), step=1, title="% Male")
 slider61.on_change('value',update)
 slider62 = RangeSlider(start=0, end=100, value=(0,100), step=1, title="% Female")
 slider62.on_change('value',update)
 
 # 7) Etnicity
-div7 = Div(text="<b> Diverty Index </b>")
 slider7 = RangeSlider(start=0, end=100, value=(0,100), step=1, title="Diversity Index")
 slider7.on_change('value',update)
 
 # 8) 
 #Rent
-div81 =Div(text="<b> Housing rent per sqft </b>")
+div81 =Div(text="<b> Housing Rent per Sqft </b>")
 radio_button81= RadioButtonGroup(
         labels=["No Preference","< 20 $", "20-30$", ">30 $"], active=0)
 radio_button81.on_change('active',update)
@@ -317,10 +313,10 @@ table,m, div0= create_plot()
 
 #Combine all controls to get in column
 
-col1 = row(table,m,height=200,width=1000)
-col2 = column(div1,select1, slider21, slider22,slider3, slider4, width = 250)
-col3 = column(div5, div51, select51, div52, select52, div53,  checkbox52,width=250)
-col4 = column(slider61,slider62,slider7, div81, radio_button81, div82, radio_button82, width=250)
+col1 = row(table,m,height=200,width=1200)
+col2 = column(div1,select1, slider21, slider22,slider3, slider4, width = 210)
+col3 = column(div5, div51, select51, div52, select52, div53,  checkbox52,width=210)
+col4 = column(slider61,slider62,slider7, div81, radio_button81, div82, radio_button82, width=210)
 
 
 #Layout
