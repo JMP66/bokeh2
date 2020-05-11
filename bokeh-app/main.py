@@ -198,7 +198,7 @@ def create_plot():
     
     # range bounds supplied in web mercator coordinates
     w = 40000
-    m = figure(x_range=(x1-w, x1+w), y_range=(y1-w, y1+w),height=500,width=500, 
+    m = figure(x_range=(x1-w, x1+w), y_range=(y1-w, y1+w),height=500,width=480, 
                x_axis_location=None, y_axis_location=None,toolbar_location='below',tools="pan,wheel_zoom,reset",active_scroll='auto')
     m.add_tile(tile_provider)
     circles = m.circle(x="mercx",y="mercy",size=8, source=source, fill_color="midnightblue", fill_alpha=1)
@@ -313,7 +313,7 @@ table,m, div0= create_plot()
 
 #Combine all controls to get in column
 
-col1 = row(table,m,height=200,width=1200)
+col1 = row(table,m,height=200,width=1180)
 col2 = column(div1,select1, slider21, slider22,slider3, slider4, width = 210)
 col3 = column(div5, div51, select51, div52, select52, div53,  checkbox52,width=210)
 col4 = column(slider61,slider62,slider7, div81, radio_button81, div82, radio_button82, width=210)
