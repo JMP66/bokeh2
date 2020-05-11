@@ -221,7 +221,7 @@ div00= Div(text="<i> Sort and Select</i>")
 
 # 1) Choose borough
 div1 = Div(text="<b> Choose Borough</b>")
-boros = ['No Preference']+list(mid_stat.borough.unique())
+boros = ['No preference']+list(mid_stat.borough.unique())
 select1 = Select(options=boros, value=boros[0])
 select1.on_change('value',update)
 
